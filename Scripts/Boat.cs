@@ -13,14 +13,20 @@ public class Boat : MonoBehaviour
 
     void Update()
     {
+        VelocityUpdate();
         if(Input.GetKey(KeyCode.A))
         {
-            playerRig.AddForce(new Vector3(10, 0, 0));
+            playerRig.AddForce(new Vector3(20, 0, 0));
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            playerRig.AddForce(new Vector3(-10, 0, 0));
+            playerRig.AddForce(new Vector3(-20, 0, 0));
         }
+    }
+
+    void VelocityUpdate()
+    {
+
     }
 }
