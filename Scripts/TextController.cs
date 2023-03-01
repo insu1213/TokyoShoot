@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextController : MonoBehaviour
 {
@@ -70,6 +71,9 @@ public class TextController : MonoBehaviour
                 break;
             case 13:
                 MainTxt.text = "일본까지 백신을 신속하고 안전하게 이송하는 작전이 시작되었다.";
+                break;
+            case 14:
+                SceneManager.LoadScene("GameScene");
                 break;
         }
     }
