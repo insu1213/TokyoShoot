@@ -8,25 +8,31 @@ public class Boat : MonoBehaviour
     void Start()
     {
         playerRig = transform.gameObject.GetComponent<Rigidbody>();
-        playerRig.AddForce(new Vector3(0, 0, -200), ForceMode.Impulse);
+        playerRig.AddForce(new Vector3(0, 0, -20), ForceMode.Impulse);
     }
 
     void Update()
     {
-        VelocityUpdate();
-        if(Input.GetKey(KeyCode.A))
+        if(VelocityUpdate())
         {
-            playerRig.AddForce(new Vector3(20, 0, 0));
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                playerRig.AddForce(new Vector3(1, 0, 0));
+            }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            playerRig.AddForce(new Vector3(-20, 0, 0));
+            if (Input.GetKey(KeyCode.D))
+            {
+                playerRig.AddForce(new Vector3(-1, 0, 0));
+            }
         }
     }
 
-    void VelocityUpdate()
+    bool VelocityUpdate()
     {
-
+        if(playerRig.velocity.x > 10f || playerRig.velocity.x < -10f)
+        {
+            return false;
+        }
+        return true;
     }
 }
